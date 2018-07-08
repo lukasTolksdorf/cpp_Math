@@ -1,16 +1,23 @@
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
-namespace matr{
+namespace Matr{
 
 template <typename type>
-class Matrix{
+class Slice
+{
 public:
-	Matrix{ int dim1, dim2 };
+	Slice();
+	Slice(int size);
+	//type& operator[] (int index);
+	//Slice& operator= (const Slice rhs);
+private:
 
-PRIVATE:
-	MOCKABLE 
+	type Values_[];
+	int Size_;
 };
+
+
 
 } /// namespace matr
 
