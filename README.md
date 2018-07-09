@@ -18,7 +18,7 @@
 
 ## Code conventions
 
-* don't use "using namespace", namespace of single classes in a namespace are ok though 
+* don't use "using namespace", namespace of single classes in a namespace are ok though
 
 ## Layout-conventions
 
@@ -27,5 +27,4 @@
 
 ## Git-conventions
 
-* rebase, push to dev, merge with master
-
+* branch, develop, push, pullrequest, codereview, rebase
