@@ -23,9 +23,9 @@ public:
         }
         return *this;
     }
-    double Values_[size];
-private:
 
+private:
+    double Values_[size];
     int Size_ = size;
 };
 

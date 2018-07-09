@@ -10,6 +10,6 @@ int main(int argc, char* argv[])
 
     double TestArray[2] = { 1.f, 0.1f };
     test1 = TestArray;
-    std::cout << test1.Values_[1] <<"\n";
+    //std::cout << test1.Values_[1] <<"\n";
     return 0;
 }
