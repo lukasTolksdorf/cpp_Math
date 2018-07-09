@@ -1,6 +1,9 @@
 # cpp_Math
 
-this repo is my playground..
+|MASTER|DEV|
+|------|---|
+|[![Build Status](https://travis-ci.com/lukasTolksdorf/cpp_Math.svg?branch=master)](https://travis-ci.com/lukasTolksdorf/cpp_Math)|[![Build Status](https://travis-ci.com/lukasTolksdorf/cpp_Math.svg?branch=dev)](https://travis-ci.com/lukasTolksdorf/cpp_Math)|
+
 
 ## Name-conventions
 
@@ -9,9 +12,9 @@ this repo is my playground..
 * function-parameters lowercased
 * never use leading underscore
 
-## General convenntions
+## General conventions
 
-* praise Simon
+* praise Simon, he realy needs it ;)
 
 ## Code conventions
 
@@ -24,5 +27,5 @@ this repo is my playground..
 
 ## Git-conventions
 
-* ofbranching and rebasing
+* rebase, push to dev, merge with master
 
