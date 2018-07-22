@@ -13,7 +13,6 @@ TEST(MatrixTest, MemoryAllocation)
 
 }
 
-<<<<<<< FeatureMatrix
 TEST(MatrixTest, Multiplication)
 {
     ::Matr::Matrix<2, 3> Lhs = ::Matr::Matrix<2, 3>();
@@ -24,23 +23,6 @@ TEST(MatrixTest, Multiplication)
 
     ::Matr::Matrix<2, 4> Result = Lhs * Rhs;
 
-    EXPECT_DOUBLE_EQ(Result.Get(0, 0), 0.6);
-=======
-
-TEST(MatrixTest, MatrixAddition)
-{
-    ::Matr::Matrix<2, 3> Matrix1 = ::Matr::Matrix<2, 3>();
-    Matrix1.SetRandom();
-    ::Matr::Matrix<2, 3> Matrix2 = ::Matr::Matrix<2, 3>();
-    Matrix2.SetRandom();
-
-    ::Matr::Matrix<2, 3> Matrix3 = ::Matr::Matrix<2, 3>();
-    Matrix3 = Matrix1 + Matrix2;
-
-    int a = 2;
-    int b = 2;
-
-    EXPECT_GE(a, b);
-
->>>>>>> wrote Matrix-Additon
+    //EXPECT_DOUBLE_EQ(Result.Get(0, 0), 0.6);
 }
+
