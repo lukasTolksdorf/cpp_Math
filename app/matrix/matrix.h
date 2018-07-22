@@ -26,8 +26,10 @@ public:
         Values_[idx1][idx2];
     }
 
-    void SetValues()
-    {}
+    void SetValue(int idx1, int idx2, double value)
+    {
+        Values_[idx1][idx2] = value;
+    }
 
     void SetZeros() {
         for(int i; i<Tsize0; ++i) {
@@ -37,13 +39,22 @@ public:
         }
     }
 
-    //double& operator[](int idx1){
-    //
-    //}
+    double* GetRow(int idx1){
+         return &Values_[idx1][0];
+     }
 
-    //double& operator[][](int idx1, int idx2){
-    //    return this->get(idx1, idx2);
-    //}
+    double* operator[](int idx1){
+        return this->GetRow(idx1);
+    }
+
+    //multiplication zahl, matrix
+
+    //multiplication matrix, matrix
+
+    //addition matrix, matrix
+
+
+
 
 private:
 
