@@ -16,7 +16,10 @@ public:
     {
         //intentionally left empty
     }
-    ~Matrix();
+    ~Matrix()
+    {
+        //intentionally left empty
+    }
 
     double& Get(int idx1, int idx2)
     {
@@ -26,9 +29,9 @@ public:
     void SetValues()
     {}
 
-    void SetZeros(){
-        for(int i; i<Tsize0; ++i){
-            for(int j; j<Tsize1; ++j){
+    void SetZeros() {
+        for(int i; i<Tsize0; ++i) {
+            for(int j; j<Tsize1; ++j) {
                 Values_[i][j] = 0;
             }
         }
@@ -40,7 +43,7 @@ public:
 
     //double& operator[][](int idx1, int idx2){
     //    return this->get(idx1, idx2);
-     //}
+    //}
 
 private:
 

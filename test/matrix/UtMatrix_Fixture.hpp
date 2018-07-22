@@ -13,6 +13,5 @@ public:
     ~UtMatrix_Fixture() {};
 
 private:
-    ::Matr::Matrix Matrix2x3_ = ::Matr::Matrix(2, 3);
 };
 #endif //UTMATRIX_FIXTURE_HPP__

@@ -1,19 +1,14 @@
 #include "gtest/gtest.h"
-#include "UtMatrix_Fixture.hpp"
 #include "matrix.h"
 
 
+TEST(MatrixTest, MemoryAllocation)
+{
 
+    ::Matr::Matrix<2, 3> Matrix = ::Matr::Matrix<2, 3>();
+    EXPECT_GE(sizeof(Matrix), sizeof(double[2][3]));
 
-/*
- *  \test MemoryAllocation
- *
- *  \brief checks if the allocated memory is big enough
- */
-
-TEST(MatrixTest, MemoryAllocation) {
-    ::Matr::Matrix Matrix = ::Matr::Matrix(2, 2);
-
-    EXPECT_GE(sizeof(Matrix), sizeof(double[2][2]));
+    ::Matr::Matrix<100, 1000> Matrix1 = ::Matr::Matrix<100, 1000>();
+    EXPECT_GE(sizeof(Matrix1), sizeof(double[100][1000]));
 
 }
