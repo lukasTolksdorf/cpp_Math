@@ -1,6 +1,6 @@
 #include <iostream>
 #include "matrix.h"
-
+#include <stdlib.h>
 
 
 int main(int argc, char* argv[])
@@ -9,7 +9,6 @@ int main(int argc, char* argv[])
     Matr1.SetZeros();
     Matr::Matrix<2, 3> Matr2;
     Matr2.SetZeros();
-    auto Matr3 = Matr1 * Matr2;
-    Matr3.SetZeros();
-    Matr3.writeToIostream();
+
+
 }
