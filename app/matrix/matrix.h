@@ -1,4 +1,5 @@
 #ifndef MATRIX_H_
+
 #define MATRIX_H_
 
 typedef unsigned char uint8;
@@ -12,9 +13,11 @@ template<uint16 Tsize0, uint16 Tsize1>
 class Matrix
 {
 public:
-    Matrix()
+    Matrix() :
+        Dim0_(Tsize0),
+        Dim1_(Tsize1)
     {
-        //intentionally left empty
+        SetAllTo(0);
     }
     ~Matrix()
     {
@@ -23,7 +26,7 @@ public:
 
     double& Get(int idx1, int idx2)
     {
-        Values_[idx1][idx2];
+        return Values_[idx1][idx2];
     }
 
     void SetValue(int idx1, int idx2, double value)
@@ -31,19 +34,35 @@ public:
         Values_[idx1][idx2] = value;
     }
 
-    void SetZeros() {
-        for(int i=0; i<Tsize0; ++i) {
-            for(int j=0; j<Tsize1; ++j) {
-                Values_[i][j] = (double)rand() / RAND_MAX;;
+    void SetAllTo(double value)
+    {
+        for (int i = 0; i<Tsize0; ++i) {
+            for (int j = 0; j<Tsize1; ++j) {
+
+                //Values_[i][j] = (double)rand() / RAND_MAX;
+                Values_[i][j] = value;
             }
         }
     }
 
-    double* GetRow(int idx1) {
+    void SetZeros()
+    {
+        SetAllTo(0);
+    }
+
+    void SetOnes()
+    {
+        SetAllTo(1);
+    }
+
+
+    double* GetRow(int idx1)
+    {
         return &Values_[idx1][0];
     }
 
-    double* operator[](int idx1) {
+    double* operator[](int idx1)
+    {
         return this->GetRow(idx1);
     }
 
@@ -51,37 +70,58 @@ public:
     {
         std::cout << Values_[0][0] << "\n";
     }
-    //multiplication zahl, matrix
+//multiplication zahl, matrix
 
-    //multiplication matrix, matrix
+//addition matrix, matrix
 
-    //template<uint16 dim1>
-    //Matrix<Tsize0, dim1>& operator*(Matrix<uint16, uint16 dim1>)
-    //{
 
-    //}
-    //addition matrix, matrix
+    uint16 GetDim0()
+    {
+        return Dim0_;
+    }
 
+    uint16 GetDim1()
+    {
+        return Dim1_;
+    }
 
 
 private:
     template <uint16 outer1, uint16 inner, uint16 outer2>
-    friend Matrix<outer1, outer2> operator*(const Matrix<outer1, inner>& lhs,
-                                            const Matrix<inner, outer2>& rhs);
+    friend Matrix<outer1, outer2> operator*(Matrix<outer1, inner>& lhs,
+                                            Matrix<inner, outer2>& rhs);
 
     double Values_[Tsize0][Tsize1];
+    uint16 Dim0_;
+    uint16 Dim1_;
+
 }; //Matrix
 
 
 
+//#todo check if parameteres can be const
 template <uint16 outer1, uint16 inner, uint16 outer2>
-Matrix<outer1, outer2> operator*(const Matrix<outer1, inner>& lhs,
-                                 const Matrix<inner, outer2>& rhs)
+Matrix<outer1, outer2> operator*(Matrix<outer1, inner>& lhs,
+                                 Matrix<inner, outer2>& rhs)
 {
+    Matrix<outer1, outer2> Result = Matrix<outer1, outer2>();
 
-    return Matr;
+
+    for (uint16 i = 0; i < outer1; ++i)
+    {
+        for (uint16 j = 0; j < outer2 ; ++j)
+        {
+            for (uint16 k = 0; k < inner; ++k)
+            {
+                Result[i][j] += lhs[i][k] * rhs[k][j];
+            }
+        }
+    }
+
+    return Result;
 }
 
 } /// namespace matr
 
-#endif
+#endif //MATRIX_H_
+
