@@ -8,18 +8,43 @@ typedef signed short int16;
 
 namespace Matr {
 
-
+template<uint16 Tsize0, uint16 Tsize1>
 class Matrix
 {
 public:
-    Matrix(uint16 size0, uint16 size1);
+    Matrix()
+    {
+        //intentionally left empty
+    }
     ~Matrix();
-    double& operator[](int index);
-private:
-    uint16 Size0_;
-    uint16 Size1_;
 
-    double* Values;
+    double& Get(int idx1, int idx2)
+    {
+        Values_[idx1][idx2];
+    }
+
+    void SetValues()
+    {}
+
+    void SetZeros(){
+        for(int i; i<Tsize0; ++i){
+            for(int j; j<Tsize1; ++j){
+                Values_[i][j] = 0;
+            }
+        }
+    }
+
+    //double& operator[](int idx1){
+    //
+    //}
+
+    //double& operator[][](int idx1, int idx2){
+    //    return this->get(idx1, idx2);
+     //}
+
+private:
+
+    double Values_[Tsize0][Tsize1];
 };
 
 } /// namespace matr
