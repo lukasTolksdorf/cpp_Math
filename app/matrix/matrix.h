@@ -1,32 +1,25 @@
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
+typedef unsigned char uint8;
+typedef signed char int8;
+typedef unsigned short uint16;
+typedef signed short int16;
+
 namespace Matr {
 
 
-template <int size>
-class Slice
+class Matrix
 {
 public:
-    Slice() {};
-    Slice(double values[size]) :
-        Values_(values)
-    {
-        //intentionally left empty
-    }
-
-    Slice& operator=(double rhs[size])
-    {
-        for (int i = 0; i < size; ++i)
-        {
-            Values_[i] = rhs[i];
-        }
-        return *this;
-    }
-
+    Matrix(uint16 size0, uint16 size1);
+    ~Matrix();
+    double& operator[](int index);
 private:
-    double Values_[size];
-    int Size_ = size;
+    uint16 Size0_;
+    uint16 Size1_;
+
+    double* Values;
 };
 
 } /// namespace matr
